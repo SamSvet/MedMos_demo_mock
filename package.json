@@ -1,0 +1,39 @@
+{
+  "name": "medtechnika_ssv_mock",
+  "version": "1.0.0",
+  "description": "medtechnika ssv mock api",
+  "main": "src/index.ts",
+  "type": "commonjs",
+  "scripts": {
+    "prestart": "kill-port --port 3390",
+    "start": "tsc-watch --noClear --onSuccess \"node dist/index.js\"",
+    "build": "tsc --build"
+  },
+  "keywords": [],
+  "author": "Sam Svetlichnyy",
+  "dependencies": {
+    "@mikro-orm/core": "^4.5.10",
+    "@mikro-orm/postgresql": "^4.5.10",
+    "@types/json-schema": "^7.0.15",
+    "ajv": "^8.17.1",
+    "cors": "^2.8.5",
+    "date-fns": "^2.22.1",
+    "express": "4.17.1",
+    "multer": "1.4.2",
+    "pg-mem": "^2.6.3",
+    "sequelize": "^7.0.0-alpha.2",
+    "uuid": "8.3.2",
+    "write-excel-file": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/date-fns": "^2.6.0",
+    "@types/express": "4.17.13",
+    "@types/multer": "1.4.7",
+    "@types/uuid": "^8.3.4",
+    "kill-port": "1.6.1",
+    "tsc-watch": "5.0.3",
+    "typescript": "4.6.2"
+  },
+  "license": "ISC"
+}
