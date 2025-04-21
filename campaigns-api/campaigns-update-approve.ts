@@ -60,7 +60,7 @@ const campaignUpdateApproveResponse = (id: string, params: any) => {
     const errResponse = createErrorResponse(
       id,
       code,
-      "Проверьте корректность заполнения формы.",
+      "Please check that the form is filled out correctly.",
       modal,
       popup
     );
@@ -91,7 +91,7 @@ const campaignUpdateApproveResponse = (id: string, params: any) => {
     const errResponse = createErrorResponse(
       id,
       code,
-      "Проверьте корректность заполнения формы.",
+      "Please check that the form is filled out correctly.",
       modal,
       popup
     );

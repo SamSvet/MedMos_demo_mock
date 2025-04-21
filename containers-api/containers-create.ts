@@ -1,14 +1,9 @@
 import { Request, Response } from "express";
-import {
-  createErrorResponse,
-  createResponse,
-  DELTA_ACTION,
-} from "../share/response";
+import { createResponse, DELTA_ACTION } from "../share/response";
 import { CONTAINERS } from "../data/containers/containers";
 import { Container } from "../share/interfaces";
 import { v4 } from "uuid";
 import { validateContainer } from "../data/containers/containers-utils";
-import { ErrorCode, getErrorModal } from "../share/constants";
 import { sanitize } from "../share/sanitize";
 
 const isEmptyObject = (obj) =>

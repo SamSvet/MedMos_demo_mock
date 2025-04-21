@@ -46,7 +46,7 @@ export const POSITIONS2: PositionItem[] = ORDERS.flatMap((order) => [
         order_id: order.order_id,
         position_id: pos_group.toString(),
         color: getRandomItem(COLORS).internal_code,
-        position_description: `Какое-то описание группы позиции номер ${pos_group}`,
+        position_description: `Some group position description goes here ${pos_group}`,
         model_id: getRandomItem(MODELS).internal_code,
         position_name: randomString(10),
       }),
@@ -57,7 +57,7 @@ export const POSITIONS2: PositionItem[] = ORDERS.flatMap((order) => [
 export const POSITIONS: PositionItem[] = ORDERS.flatMap((order) =>
   new Array(5).fill(0).flatMap((_) => {
     const pos_group = v4();
-    const position_description = `Какое-то описание группы позиции номер ${pos_group}`;
+    const position_description = `Some group position description goes here ${pos_group}`;
     const color = getRandomItem(COLORS).internal_code;
     const model_id = getRandomItem(MODELS).internal_code;
     const position_name = randomString(10);
@@ -160,7 +160,7 @@ const fillRandomPositionGroups = (
 export const POSITIONGROUPS: Position[] = ORDERS.flatMap((order) =>
   new Array(5).fill(0).flatMap((_) => {
     const pos_group = v4();
-    const position_description = `Какое-то описание группы позиции номер ${pos_group}`;
+    const position_description = `Some group position description goes here ${pos_group}`;
     const color = getRandomItem(COLORS).internal_code;
     const position_name = randomString(10);
     const model_id = getRandomItem(MODELS).internal_code;

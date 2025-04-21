@@ -1,16 +1,5 @@
 import { Request, Response } from "express";
-import { v4 } from "uuid";
-import { CAMPAIGNS } from "../data/campaigns/campaign-list";
-import { SCENARIOS } from "../data/scenarios/scenarios";
-import { validateCampaign } from "../data/campaigns/campaign-utils";
-import { TAGS } from "../data/tags/tags";
-import {
-  CampaignStatus,
-  getErrorModal,
-  ErrorCode,
-  Screen,
-} from "../share/constants";
-import { Campaign } from "../share/interfaces";
+import { getErrorModal, ErrorCode, Screen } from "../share/constants";
 import {
   createErrorResponse,
   createResponse,
@@ -19,7 +8,7 @@ import {
 import { sanitize } from "../share/sanitize";
 import { currentDate } from "../share/utils";
 import { ORDERS } from "../data/orders/orders";
-import { POSITIONGROUPS, POSITIONS } from "../data/positions/positions";
+import { POSITIONGROUPS } from "../data/positions/positions";
 import { getOrdersListDict, validateOrder } from "../data/orders/order-utils";
 
 const positionsShowCreateResponse = (id: string, params: any) => {
@@ -63,7 +52,7 @@ const positionsShowCreateResponse = (id: string, params: any) => {
     const errResponse = createErrorResponse(
       id,
       code,
-      "Проверьте корректность заполнения формы.",
+      "Please check that the form is filled out correctly.",
       modal,
       popup
     );

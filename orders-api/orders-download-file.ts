@@ -14,29 +14,29 @@ const writeXlsxFile = require("write-excel-file/node");
 const ordersGenerateFile = async (id: string, params: any) => {
   const file_schema = [
     {
-      column: "Имя заказа",
+      column: "Order",
       type: String,
       value: (el) => el.order.order_name,
     },
     {
-      column: "Артикул",
+      column: "Article",
       type: String,
       value: (el) => el.position.position_name,
     },
     {
-      column: "Модельный номер",
+      column: "Model Number",
       type: String,
       value: (el) =>
         MODELS.find((m) => m.internal_code === el.position.model_id).name,
     },
     {
-      column: "Цвет",
+      column: "Color",
       type: String,
       value: (el) =>
         COLORS.find((m) => m.internal_code === el.position.color).name,
     },
     {
-      column: "Контейнер",
+      column: "Cargo Container",
       type: String,
       value: (el) =>
         CONTAINERS.filter((m) => el.position.container.includes(m.id))
@@ -44,7 +44,7 @@ const ordersGenerateFile = async (id: string, params: any) => {
           .join(","),
     },
     {
-      column: "Дата доставки",
+      column: "Delivery date",
       type: Date,
       format: "dd.mm.yyyy",
       value: (el) =>
@@ -53,26 +53,26 @@ const ordersGenerateFile = async (id: string, params: any) => {
         )?.[0] || null,
     },
     {
-      column: "Статус",
+      column: "Status",
       type: String,
       value: (el) =>
         POSITION_ITEM_STATUS.find((s) => s.internal_code === el.position.status)
           .name,
     },
     {
-      column: "Всего",
+      column: "Total Count",
       type: Number,
       format: "#,##0",
       value: (el) => el.position.count,
     },
     {
-      column: "В резерве",
+      column: "Reserved Count",
       type: Number,
       format: "#,##0",
       value: (el) => el.position.reserved_count,
     },
     {
-      column: "Остаток",
+      column: "Remaining Stock",
       type: Number,
       value: (el) => el.position.count - el.position.reserved_count,
     },
@@ -85,7 +85,7 @@ const ordersGenerateFile = async (id: string, params: any) => {
 
   return await writeXlsxFile(file_data, {
     schema: file_schema,
-    sheet: "Приходы ВСС",
+    sheet: "Deliveries ВСС",
     stickyRowsCount: 1,
   });
 };

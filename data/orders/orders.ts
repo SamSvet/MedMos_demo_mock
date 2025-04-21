@@ -7,7 +7,7 @@ import { ErrorCode } from "../../share/constants";
 
 const DESCRIPTIONS = new Array(10)
   .fill(0)
-  .map((x, i) => `Какое-то описание заказа номер ${i + 1}`);
+  .map((x, i) => `Some description goes here for Order ${i + 1}`);
 
 const fillRandomOrders = (
   seed: Pick<Order, "order_name" | "description">
@@ -24,45 +24,47 @@ const fillRandomOrders = (
 
 export const ORDERS: Order[] = new Array(2).fill(0).map((_x, i) => ({
   ...fillRandomOrders({
-    order_name: `Заказ #${i + 1}`,
-    description: `Какое-то описание заказа номер ${i + 1}`,
+    order_name: `Order #${i + 1}`,
+    description: `Some description goes here for Order ${i + 1}`,
   }),
 }));
 
 ORDERS.unshift({
   ...fillRandomOrders({
-    order_name: "Заблокированный заказ",
-    description: "Заблокированный заказ",
+    order_name: "Blocked Order",
+    description: "Blocked Order",
   }),
   order_id: "locked_order",
 });
 ORDERS.unshift({
   ...fillRandomOrders({
-    order_name: "Не найденный заказ",
-    description: "Не найденный заказ",
+    order_name: "Not Found Order",
+    description: "Not Found Order",
   }),
   order_id: "notfound_order",
 });
+
 ORDERS.unshift({
   ...fillRandomOrders({
-    order_name: "Мой заказ",
-    description: "Мой заказ",
-  }),
-  order_id: "my_order",
-});
-ORDERS.unshift({
-  ...fillRandomOrders({
-    order_name: "Ошибочный заказ",
-    description: "Ошибочный заказ",
+    order_name: "Error Order",
+    description: "Error Order",
   }),
   order_id: "system_error",
 });
 ORDERS.unshift({
   ...fillRandomOrders({
-    order_name: "Нет доступа",
-    description: "Нет доступа",
+    order_name: "No Access Order",
+    description: "No Access Order",
   }),
   order_id: "no_access",
+});
+
+ORDERS.unshift({
+  ...fillRandomOrders({
+    order_name: "My Order",
+    description: "My Order",
+  }),
+  order_id: "my_order",
 });
 
 export const WRONG_ORDERS = [

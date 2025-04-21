@@ -5,16 +5,14 @@ import {
   validatePositions,
 } from "../data/orders/order-utils";
 import { ORDERS, WRONG_ORDERS } from "../data/orders/orders";
-import { getOrderPositionsFilter } from "../data/positions/positions-utils";
-import { PositionItemGrouped2 } from "../share/interfaces";
 import {
   createErrorResponse,
   createResponse,
   DELTA_ACTION,
 } from "../share/response";
 import { ordersListResponse } from "./orders-list";
-import { getErrorModal, ErrorCode, RefCode, Screen } from "../share/constants";
-import { POSITIONGROUPS, POSITIONS } from "../data/positions/positions";
+import { getErrorModal, ErrorCode, Screen } from "../share/constants";
+import { POSITIONGROUPS } from "../data/positions/positions";
 
 const orderViewResponse = (id: string, params: any) => {
   const { order_id } = params.orders;

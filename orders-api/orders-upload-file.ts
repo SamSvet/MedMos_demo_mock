@@ -2,11 +2,9 @@ import { Request, Response } from "express";
 import { v4 } from "uuid";
 import { ORDERS } from "../data/orders/orders";
 import {
-  validateOrder,
   getOrdersListDict,
   validateJsonFile,
   extendRefBook,
-  getUpdatedPosition,
   validatePosition,
 } from "../data/orders/order-utils";
 import {
@@ -14,16 +12,14 @@ import {
   ErrorCode,
   Screen,
   PositionStatus,
-  RefCode,
 } from "../share/constants";
 import {
   createErrorResponse,
   DELTA_ACTION,
   createResponse,
 } from "../share/response";
-import { sanitize } from "../share/sanitize";
-import { currentDate, randomString } from "../share/utils";
-import { POSITIONGROUPS, POSITIONS } from "../data/positions/positions";
+import { currentDate } from "../share/utils";
+import { POSITIONGROUPS } from "../data/positions/positions";
 import {
   Container,
   Order,
@@ -88,7 +84,7 @@ const ordersUploadFileResponse = (
     const errResponse = createErrorResponse(
       id,
       code,
-      "Проверьте корректность заполнения формы.",
+      "Please check that the form is filled out correctly.",
       modal,
       popup
     );
@@ -96,7 +92,7 @@ const ordersUploadFileResponse = (
       ...errResponse,
       result: {
         ...errResponse.result,
-        bad_attributes: { orders: [{ file: "Файл отсутствует" }] },
+        bad_attributes: { orders: [{ file: "File is missing" }] },
       },
     };
   }
@@ -114,7 +110,7 @@ const ordersUploadFileResponse = (
     const errResponse = createErrorResponse(
       id,
       code,
-      "Проверьте корректность заполнения формы.",
+      "Please check that the form is filled out correctly.",
       modal,
       popup
     );
@@ -139,7 +135,7 @@ const ordersUploadFileResponse = (
     const errResponse = createErrorResponse(
       id,
       code,
-      "Проверьте корректность заполнения формы.",
+      "Please check that the form is filled out correctly.",
       modal,
       popup
     );
@@ -148,7 +144,7 @@ const ordersUploadFileResponse = (
       result: {
         ...errResponse.result,
         bad_attributes: {
-          orders: [{ file: ["Заказ с таким именем уже существует"] }],
+          orders: [{ file: ["An order with this name already exists"] }],
         },
       },
     };
@@ -255,7 +251,7 @@ const ordersUploadFileResponse = (
     const errResponse = createErrorResponse(
       id,
       code,
-      "Проверьте корректность заполнения формы.",
+      "Please check that the form is filled out correctly.",
       modal,
       popup
     );
@@ -263,7 +259,7 @@ const ordersUploadFileResponse = (
       ...errResponse,
       result: {
         ...errResponse.result,
-        bad_attributes: { orders: [{ file: ["Что-то пошло не так"] }] },
+        bad_attributes: { orders: [{ file: ["Something went wrong"] }] },
       },
     };
     // return {

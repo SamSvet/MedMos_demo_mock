@@ -396,27 +396,27 @@ export const validatePosition = <T extends PositionItem | Position>(
   let isOk = true;
 
   if (!position.position_name) {
-    badParams.position_name = ["Обязательное поле"];
+    badParams.position_name = ["Required field"];
     isOk = false;
   }
 
   if (!position.color) {
-    badParams.color = ["Обязательное поле"];
+    badParams.color = ["Required field"];
     isOk = false;
   }
 
   if (!position.position_description) {
-    badParams.position_description = ["Обязательное поле"];
+    badParams.position_description = ["Required field"];
     isOk = false;
   }
 
   if (!position.model_id) {
-    badParams.model_id = ["Обязательное поле"];
+    badParams.model_id = ["Required field"];
     isOk = false;
   }
 
   if (!position.status) {
-    badParams.status = ["Обязательное поле"];
+    badParams.status = ["Required field"];
     isOk = false;
   }
 
@@ -431,26 +431,26 @@ export const validatePositionGroup = (
   let isOk = true;
 
   if (!position.count) {
-    badParams.count = ["Обязательное поле"];
+    badParams.count = ["Required field"];
     isOk = false;
   }
   if (!position.position_name) {
-    badParams.position_name = ["Обязательное поле"];
+    badParams.position_name = ["Required field"];
     isOk = false;
   }
 
   if (!position.color) {
-    badParams.color = ["Обязательное поле"];
+    badParams.color = ["Required field"];
     isOk = false;
   }
 
   if (!position.position_description) {
-    badParams.position_description = ["Обязательное поле"];
+    badParams.position_description = ["Required field"];
     isOk = false;
   }
 
   if (!position.model_id) {
-    badParams.model_id = ["Обязательное поле"];
+    badParams.model_id = ["Required field"];
     isOk = false;
   }
 
@@ -538,7 +538,7 @@ export const validateJsonFile = (
   jsonSchema: JSONSchema7
 ): OrderFile => {
   if (file.mimetype != "application/json") {
-    throw new Error("Файл должен быть в формате json");
+    throw new Error("File must be in json format");
   }
   const fileParsed = JSON.parse(file.buffer.toString());
   const ajv = new Ajv({ strictTuples: false });

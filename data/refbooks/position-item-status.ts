@@ -4,15 +4,15 @@ import { PositionStatus } from "../../share/constants";
 const postionItemStatus: RefBook[] = [
   {
     internal_code: PositionStatus.NEW,
-    name: "В производстве",
+    name: "Production",
     is_deleted: false,
   },
   {
     internal_code: PositionStatus.WAY,
-    name: "В пути",
+    name: "Transit",
     is_deleted: false,
   },
-  { internal_code: PositionStatus.STOCK, name: "На складе", is_deleted: false },
+  { internal_code: PositionStatus.STOCK, name: "Stock", is_deleted: false },
 ];
 
 export const POSITION_ITEM_STATUS = postionItemStatus.map((x) => ({

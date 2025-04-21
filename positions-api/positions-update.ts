@@ -1,22 +1,15 @@
 import { Request, Response } from "express";
-import {
-  CampaignStatus,
-  getErrorModal,
-  ErrorCode,
-  Screen,
-} from "../share/constants";
+import { getErrorModal, ErrorCode, Screen } from "../share/constants";
 import {
   createErrorResponse,
   createResponse,
   DELTA_ACTION,
 } from "../share/response";
 import { sanitize } from "../share/sanitize";
-import { currentDate } from "../share/utils";
-import { POSITIONGROUPS, POSITIONS } from "../data/positions/positions";
+import { POSITIONGROUPS } from "../data/positions/positions";
 import {
   getOrdersListDict,
   getUpdatedPosition,
-  removeCountZero,
   validatePosition,
 } from "../data/orders/order-utils";
 import { ORDERS } from "../data/orders/orders";
@@ -61,7 +54,7 @@ const positionsUpdateResponse = (id: string, params: any) => {
     const errResponse = createErrorResponse(
       id,
       code,
-      "Проверьте корректность заполнения формы.",
+      "Please check that the form is filled out correctly.",
       modal,
       popup
     );

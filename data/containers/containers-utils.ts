@@ -9,10 +9,10 @@ type ContainerValidateFn = (
 
 const validateName = (value: string, defaultValue: ContainerBadParamT) => {
   if (!value) {
-    return { name: ["Обязательное поле"] };
+    return { name: ["Required field"] };
   }
   if (CONTAINERS.map((c) => c.name).includes(value)) {
-    return { name: ["Контейнер с таким именем уже существует"] };
+    return { name: ["A container with this name already exists."] };
   }
   return defaultValue;
 };
@@ -26,11 +26,13 @@ const validateDeliveryDt = (
   }
   try {
     if (new Date(value) < new Date()) {
-      return { plan_delivery_dt: ["Дата доставки не может быть из прошлого"] };
+      return {
+        plan_delivery_dt: ["The delivery date cannot be from the past."],
+      };
     }
   } catch (e) {
     console.log(e);
-    return { plan_delivery_dt: ["Дата доставки"] };
+    return { plan_delivery_dt: ["Delivery date"] };
   }
   return defaultValue;
 };

@@ -1,13 +1,10 @@
 import { Request, Response } from "express";
-import { v4 } from "uuid";
 import {
   getErrorModal,
   ErrorCode,
-  RefCode,
   Screen,
   RefCodeOrder,
 } from "../share/constants";
-import { Order } from "../share/interfaces";
 import {
   createErrorResponse,
   createResponse,
@@ -16,12 +13,12 @@ import {
 import { sanitize } from "../share/sanitize";
 import { currentDate } from "../share/utils";
 import { ORDERS } from "../data/orders/orders";
-import { POSITIONGROUPS, POSITIONS } from "../data/positions/positions";
+import { POSITIONGROUPS } from "../data/positions/positions";
 import { COLORS } from "../data/refbooks/colors";
 import { POSITION_ITEM_STATUS } from "../data/refbooks/position-item-status";
 import { CONTAINERS } from "../data/refbooks/containers";
 import { MODELS } from "../data/refbooks/models";
-import { getOrdersListDict, validateOrder } from "../data/orders/order-utils";
+import { validateOrder } from "../data/orders/order-utils";
 import { CONTAINERS as CONT } from "../data/containers/containers";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -48,7 +45,7 @@ const positionsShowReserveResponse = (id: string, params: any) => {
     const errResponse = createErrorResponse(
       id,
       code,
-      "Проверьте корректность заполнения формы.",
+      "Please check that the form is filled out correctly.",
       modal,
       popup
     );

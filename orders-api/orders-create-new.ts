@@ -10,7 +10,7 @@ import {
 } from "../share/response";
 import { sanitize } from "../share/sanitize";
 import { currentDate } from "../share/utils";
-import { POSITIONGROUPS, POSITIONS } from "../data/positions/positions";
+import { POSITIONGROUPS } from "../data/positions/positions";
 
 const ordersCreateNewResponse = (id: string, params: any) => {
   const { screen_data, filter_data } = params;
@@ -36,7 +36,7 @@ const ordersCreateNewResponse = (id: string, params: any) => {
     const errResponse = createErrorResponse(
       id,
       code,
-      "Проверьте корректность заполнения формы.",
+      "Check that the form is filled out correctly",
       modal,
       popup
     );

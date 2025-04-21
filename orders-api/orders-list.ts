@@ -89,7 +89,7 @@ export const ordersListResponse = (id: string, params: any) => {
       screen: Screen.ORDERS_LIST,
       response: RESPONSE_STATUS.OK,
       code,
-      message: "Выбранная вами страница отсутствует.",
+      message: "The page you selected is missing.",
       popup: modal,
       delta: {},
       delta_action: DELTA_ACTION.OVERRIDE,

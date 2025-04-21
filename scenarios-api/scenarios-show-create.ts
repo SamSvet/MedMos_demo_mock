@@ -48,7 +48,9 @@ const scenariosShowCreateResponse = (id: string, params: any) => {
     return newTagId;
   });
 
-  const scenarios = SCENARIOS.filter(s => s.campaign_id === prevCampaignData.campaign_id);
+  const scenarios = SCENARIOS.filter(
+    (s) => s.campaign_id === prevCampaignData.campaign_id
+  );
 
   // проверка на bad_params атрибутов кампании
   const badParamsCampaign = validateCampaign(updatedCampaignData);
@@ -60,7 +62,7 @@ const scenariosShowCreateResponse = (id: string, params: any) => {
     const errResponse = createErrorResponse(
       id,
       code,
-      "Проверьте корректность заполнения формы.",
+      "Please check that the form is filled out correctly.",
       modal,
       popup
     );
