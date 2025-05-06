@@ -101,15 +101,26 @@ enum ErrorModal {
   LOCKED = "locked",
 }
 
+// enum ErrorMessage {
+//   NO_ACCESS = "Недостаточно прав доступа.",
+//   SYSTEM_ERROR = "На сервере произошла непредвиденная ошибка. Пожалуйста, обратитесь к администратору.",
+//   NOT_FOUND = "Данные не найдены.",
+//   BAD_PARAMS = "Необходимо скорректировать введенные данные.",
+//   INVALID_OPERATION = "Недопустимая операция",
+//   LOCKED = "Объект закблокирован Олололей Ололоевой",
+//   NO_PAGE = "Запрошенная страница не найдена.",
+//   FAIL_RESPONSE = "Произошла ошибка.",
+// }
+
 enum ErrorMessage {
-  NO_ACCESS = "Недостаточно прав доступа.",
-  SYSTEM_ERROR = "На сервере произошла непредвиденная ошибка. Пожалуйста, обратитесь к администратору.",
-  NOT_FOUND = "Данные не найдены.",
-  BAD_PARAMS = "Необходимо скорректировать введенные данные.",
-  INVALID_OPERATION = "Недопустимая операция",
-  LOCKED = "Объект закблокирован Олололей Ололоевой",
-  NO_PAGE = "Запрошенная страница не найдена.",
-  FAIL_RESPONSE = "Произошла ошибка.",
+  NO_ACCESS = "Insufficient access rights.",
+  SYSTEM_ERROR = "An unexpected error occurred on the server. Please contact your administrator.",
+  NOT_FOUND = "No data found.",
+  BAD_PARAMS = "It is necessary to correct the entered data.",
+  INVALID_OPERATION = "Invalid operation.",
+  LOCKED = "The object is blocked.",
+  NO_PAGE = "The requested page was not found.",
+  FAIL_RESPONSE = "An error occurred.",
 }
 
 const errModals = {
